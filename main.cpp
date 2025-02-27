@@ -18,23 +18,24 @@ long long int linear_search(long long int array[], long long int array_length, l
 long long int binary_search(long long int array[], long long int array_length, long long int number_to_find) { // Бинарный поиск
   long long int lborder = 0, rborder = array_length - 1;
   while (lborder <= rborder) {
-    int middle =lborder + (rborder - lborder) / 2;
+    long long int middle = lborder + (rborder - lborder) / 2;
     if (array[middle] == number_to_find) {
       return middle;
     }
     if (array[middle] < number_to_find) {
       lborder = middle + 1;
-    }
-    if (array[middle] > number_to_find) {
+    } else {
       rborder = middle - 1;
     }
+    if (lborder == rborder && array[lborder] != number_to_find){
+      break;
   }
   return -1;
 }
 
 void quadratic_sum(long long int array[], long long int array_length, long long int sum_to_find) { // Прямой перебор для находения элементов с заданной суммой
-  for (int i = 0; i < array_length; ++i) {
-    for (int j = 0; j < array_length; ++j) {
+  for (int i = 0; i < array_length - 1; ++i) {
+    for (int j = i + 1; j < array_length -1; ++j) {
       if (i != j) {
         if (array[i] +array[j] == sum_to_find) {
           return;
