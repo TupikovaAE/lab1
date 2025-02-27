@@ -4,7 +4,6 @@
 #include <random>
 #include <algorithm>
 
-using namespace std;
 
 long long int linear_search(long long int array[], long long int array_length, long long int number_to_find) { // Поиск прямым перебором
   for (int idx = 0; idx != array_length; ++idx) {
